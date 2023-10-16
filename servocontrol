@@ -1,0 +1,21 @@
+#include <Servo.h>
+
+Servo arm;
+float pos = 0.0;
+float step = 1.0;
+
+void setup() {
+ pinMode(A0, INPUT);
+ arm.attach(10);
+ arm.write(pos);
+
+}
+
+void loop() {
+ int value = map(analogRead(A0), 0, 1023, 0, 180);
+ arm.write(value);
+ value+=step;
+ delay(5);
+
+
+}
