@@ -1,0 +1,45 @@
+const int stepPin= 13;
+const int dir_LPin= 12;
+const int dir_RPin= 11;
+const int led_L= 2;
+const int led_R= 3;
+
+
+void setup() {
+ pinMode(stepPin, OUTPUT);
+ pinMode(dir_LPin, OUTPUT);
+ pinMode(dir_RPin, OUTPUT);
+ pinMode(A0, INPUT);
+}
+
+void loop() {
+int value = map(analogRead(A0), 0, 1023, 0, 3);
+delayMicroseconds(1);
+
+if (value<1) {
+  digitalWrite(dir_LPin, HIGH);
+  digitalWrite(dir_RPin, LOW);
+  digitalWrite(led_L, HIGH);
+  digitalWrite(led_R, LOW);
+}
+else if (value>1; value<2) {
+  digitalWrite(dir_LPin, HIGH);
+  digitalWrite(dir_RPin, HIGH);
+  digitalWrite(led_L, HIGH);
+  digitalWrite(led_R, HIGH);
+}
+else if (value>2; value<3) {
+  digitalWrite(dir_LPin, LOW);
+  digitalWrite(dir_RPin, HIGH);
+  digitalWrite(led_L, LOW);
+  digitalWrite(led_R, HIGH);
+}
+
+
+digitalWrite(stepPin, HIGH);
+delayMicroseconds(500);
+digitalWrite(stepPin, LOW);
+delayMicroseconds(500);
+
+
+}
